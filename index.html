@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Test 1 - Cooking Recipe</title>
+        <script src="js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrapmodal.css" media="screen"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body id="page-top">
+        <nav>
+            <div>
+                <button onclick="fetchdata('listofrecipes')" class='menubtn'>List of Recipes</button>
+                <button onclick="fetchdata('recipes')" class='menubtn'>Recipe</button>
+                <button onclick="fetchdata('specials')" class='menubtn'>Specials</button>
+                <button onclick="addrecipe('add')" class='menubtn'>Add Recipe</button>
+                <button href onclick="updaterecipe()" class='menubtn'>Update Recipe</button>
+            </div>
+        </nav>
+        <br>
+
+        <div id="listtab" class="tabs"></div>
+
+        <div id="recipetab" class="tabs">
+        </div>
+
+        <div id="specialstab" class="tabs"></div>
+
+        <input type="hidden" value="none" id="recipedetailvalue">
+
+        <div id="addeditmodal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container w3-teal"> 
+                    <span onclick="closemodal()" class="w3-button w3-display-topright">&times;</span>
+                    <h2><span id="modalheader"></span></h2>
+                </header>
+                <div class="w3-container">
+                    <form>
+                        <div id='titleplaceholder' class='modalheader'>Title: <input type="text" value='' placeholder="title..." id='addedittitle'></div>
+                        <div class='modalheader'>Desciption: <textarea placeholder="type something..." id='addeditdesc'></textarea></div>
+                        <div class='modalheader'>Servings: <input type="text" value='' id='addeditservings' class='modalshort'></div>
+                        <div class='modalheader'>Prep Time: <input type="text" value='' id='addeditprep' class='modalshort'> Mins</div>
+                        <div class='modalheader'>Cook Time: <input type="text" value='' id='addeditcook' class='modalshort'> Mins</div>
+                        <div class='modalheader'>Ingredients: <i class="fa fa-plus-square-o" style="font-size:24px" onclick='addingredient()'></i></div> 
+                        <div id='ingredientstab' class='modalheader'>
+                        </div>
+                        <input type="hidden" id='ingredientctr'value=0>
+                    </form>
+                </div>
+                <footer class="w3-container w3-teal">
+                    <button onclick='savebtn()'>Save</button>
+                    <input type="hidden" id='updateoradd'value=0>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html> 
